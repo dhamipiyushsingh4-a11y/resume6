@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create ATS-friendly resumes, compare them with job descriptions, and export professional PDFs.">
+  <title>ResumeCraft — ATS Resume Builder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">R</span> ResumeCraft</a>
+    <nav><a href="#builder">Builder</a><a href="#generator">Generate Resume</a><a href="#templates">Templates</a><a href="#ats">ATS Checker</a></nav>
+    <button class="btn btn-light" id="printTop">Export PDF</button>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">SMART RESUME STUDIO</p>
+        <h1>Build a resume that gets <span>noticed.</span></h1>
+        <p class="hero-copy">Create a clean, professional resume, check it against a job description, and download a print-ready PDF.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#builder">Start building <span>→</span></a><a class="text-link" href="#ats">Check ATS score</a></div>
+      </div>
+      <div class="hero-card">
+        <div class="mini-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><small>RESUME PREVIEW</small></div>
+        <div class="mini-resume"><div class="mini-avatar">JD</div><div><b>Jordan Davis</b><small>Product Designer</small></div><hr><i></i><i></i><i class="short"></i><div class="mini-line"></div><i></i><i class="short"></i></div>
+        <div class="score-float"><strong>86</strong><span>ATS match score</span><b>Good match</b></div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div><b>10+</b><span>Resume styles</span></div><div><b>ATS</b><span>Keyword analysis</span></div><div><b>PDF</b><span>Print-ready export</span></div>
+    </section>
+
+    <section id="builder" class="workspace">
+      <div class="section-heading"><div><p class="eyebrow">YOUR DETAILS</p><h2>Resume builder</h2></div><span class="step-pill">01 / BUILD</span></div>
+      <div class="builder-grid">
+        <div class="editor panel">
+          <div class="panel-head"><h3>Personal information</h3><span>Auto-updates preview</span></div>
+          <div class="form-grid">
+            <label>Full name<input id="name" placeholder="e.g. Jordan Davis" value="Jordan Davis"></label>
+            <label>Professional title<input id="role" placeholder="e.g. Frontend Developer" value="Frontend Developer"></label>
+            <label>Email<input id="email" type="email" placeholder="you@example.com" value="jordan@example.com"></label>
+            <label>Phone<input id="phone" placeholder="+91 98765 43210" value="+91 98765 43210"></label>
+            <label class="wide">Location<input id="location" placeholder="City, Country" value="Pithoragarh, India"></label>
+            <label class="wide">Professional summary<textarea id="summary" rows="3" placeholder="Write a short professional summary...">Motivated frontend developer with experience building responsive web interfaces, improving user experience, and collaborating across teams.</textarea></label>
+            <label class="wide">Skills <small>Separate skills with commas</small><textarea id="skills" rows="2">HTML, CSS, JavaScript, Responsive Design, Git, React, UI Design</textarea></label>
+            <label class="wide">Work experience<textarea id="experience" rows="5" placeholder="Role | Company | Dates&#10;Describe achievements using action verbs and measurable results.">Frontend Developer Intern | Example Studio | Jun 2025 – Aug 2025
+Built responsive landing pages and reusable UI components.
+Improved page load performance and fixed cross-browser issues.</textarea></label>
+            <label class="wide">Education<textarea id="education" rows="3" placeholder="Degree | Institution | Year">BCA | Example College | 2025</textarea></label>
+            <label class="wide">Projects<textarea id="projects" rows="3" placeholder="Project name — what you built and the impact">ATS Resume Builder — Created a browser-based resume builder with job keyword analysis and PDF export.</textarea></label>
+            <label class="wide">Certifications<textarea id="certifications" rows="2" placeholder="Certification — Issuer — Year">JavaScript Fundamentals — Example Academy — 2025</textarea></label>
+          </div>
+          <div class="panel-actions"><button class="btn btn-outline" id="sampleBtn">Load sample data</button><button class="btn btn-primary" id="saveBtn">Save in this browser</button></div>
+        </div>
+
+        <aside class="preview-area">
+          <div class="preview-toolbar"><div><b>Live preview</b><span id="templateLabel">Modern Pro</span></div><button class="btn btn-primary btn-small" id="printBtn">Download PDF</button></div>
+          <div id="resume" class="resume modern">
+            <div class="resume-head"><h1 id="p-name">Jordan Davis</h1><h2 id="p-role">Frontend Developer</h2><p id="p-contact">jordan@example.com · +91 98765 43210 · Pithoragarh, India</p></div>
+            <div class="resume-content">
+              <section><h3>Professional Summary</h3><p id="p-summary"></p></section>
+              <section><h3>Skills</h3><p id="p-skills"></p></section>
+              <section><h3>Experience</h3><p id="p-experience" class="pre"></p></section>
+              <section><h3>Education</h3><p id="p-education" class="pre"></p></section>
+              <section><h3>Projects</h3><p id="p-projects" class="pre"></p></section>
+              <section id="cert-section"><h3>Certifications</h3><p id="p-certifications" class="pre"></p></section>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="templates" class="templates-section">
+      <div class="section-heading"><div><p class="eyebrow">MAKE IT YOURS</p><h2>Choose a template</h2><p class="muted">All included layouts are designed to remain simple and readable by ATS software.</p></div></div>
+      <div class="template-grid">
+        <button class="template-card selected" data-template="modern"><span class="template-thumb thumb-modern"><b>JORDAN DAVIS</b><i></i><i></i><i></i></span><strong>Modern Pro</strong><small>Clean, balanced layout</small></button>
+        <button class="template-card" data-template="classic"><span class="template-thumb thumb-classic"><b>JORDAN DAVIS</b><i></i><i></i><i></i></span><strong>Minimal Classic</strong><small>Traditional and simple</small></button>
+        <button class="template-card" data-template="executive"><span class="template-thumb thumb-exec"><b>JORDAN DAVIS</b><i></i><i></i><i></i></span><strong>Executive</strong><small>Bold section headings</small></button>
+        <button class="template-card" data-template="tech"><span class="template-thumb thumb-tech"><b>JORDAN DAVIS</b><i></i><i></i><i></i></span><strong>Tech Talent</strong><small>Skills-forward format</small></button>
+      </div>
+    </section>
+
+
+    <section id="generator" class="generator-section">
+      <div class="section-heading"><div><p class="eyebrow">JOB DESCRIPTION → RESUME</p><h2>Generate a tailored resume</h2><p class="muted">Paste a job description. The builder will tailor your summary, skills and resume wording using the candidate information you provide.</p></div><span class="step-pill">AUTO GENERATE</span></div>
+      <div class="panel generator-panel">
+        <label class="generator-label">Paste the complete job description<textarea id="generateJD" rows="8" placeholder="Paste the job description here — role, responsibilities, required skills and qualifications..."></textarea></label>
+        <div class="generator-controls">
+          <label>Generation mode<select id="generationMode"><option value="local">Instant generation (no API key)</option><option value="ai">AI generation (Gemini API key)</option></select></label>
+          <label>Gemini API key <input id="generateApiKey" type="password" placeholder="Optional — required for AI mode"></label>
+          <button class="btn btn-primary" id="generateResumeBtn">Generate my ATS resume <span>✦</span></button>
+        </div>
+        <p class="security-note">The generator uses your entered profile details. It will not invent degrees, employers, dates, achievements or skills. For a public production site, connect Gemini through a secure backend rather than exposing an API key in browser code.</p>
+        <p id="generateStatus" class="generate-status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="ats" class="ats-section">
+      <div class="section-heading"><div><p class="eyebrow">JOB MATCH ANALYSIS</p><h2>ATS score checker</h2><p class="muted">Paste the job description to find matching keywords and gaps.</p></div><span class="step-pill">02 / ANALYZE</span></div>
+      <div class="ats-grid">
+        <div class="panel ats-input">
+          <label>Job description<textarea id="jobDescription" rows="11" placeholder="Paste the complete job description here. Include responsibilities, skills and requirements..."></textarea></label>
+          <div class="ai-settings">
+            <div><b>AI-powered analysis (optional)</b><small>Connect a Gemini API key for AI-generated improvement advice.</small></div>
+            <input id="apiKey" type="password" placeholder="Paste Gemini API key (kept in this tab only)">
+          </div>
+          <p class="security-note">For a public website, never expose a private API key in frontend code. Use a secure backend proxy before publishing AI features to everyone.</p>
+          <button class="btn btn-primary full" id="analyzeBtn">Analyze my resume <span>→</span></button>
+        </div>
+        <div class="panel results" id="results">
+          <div class="empty-state"><div class="empty-icon">✦</div><h3>Your ATS report will appear here</h3><p>Add a job description and click Analyze to see keyword coverage, missing skills and improvement tips.</p></div>
+          <div class="report hidden" id="report">
+            <div class="score-row"><div class="score-ring" id="scoreRing"><strong id="score">0</strong><small>/ 100</small></div><div><h3 id="scoreTitle">Resume match</h3><p id="scoreCaption">Based on keyword overlap</p></div></div>
+            <div class="meter"><span id="meterFill"></span></div>
+            <div class="keyword-columns"><div><h4>Matched keywords <span class="good" id="matchedCount"></span></h4><div id="matched" class="chips"></div></div><div><h4>Missing keywords <span class="bad" id="missingCount"></span></h4><div id="missing" class="chips"></div></div></div>
+            <div class="advice"><h4>Improvement suggestions</h4><ul id="suggestions"></ul></div>
+            <div class="ai-advice hidden" id="aiAdvice"><h4>AI suggestions</h4><p id="aiText"></p></div>
+            <p class="disclaimer">This is an estimate, not an actual employer ATS result. Different applicant tracking systems use different rules.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer><b>ResumeCraft</b><span>Build clearly. Apply confidently.</span><small>© 2026 ResumeCraft · Your resume data stays in your browser unless you use the optional AI request.</small></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
